@@ -1,0 +1,52 @@
+body {
+  font-family: sans-serif;
+}
+
+table {
+  width: 100%;
+}
+
+table,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 15px;
+  text-align: left;
+}
+table tr:nth-child(even) {
+  background-color: #eee;
+}
+table tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dropdownBackground {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  background-color: black;
+  opacity: 0;
+}
+
+.dropdownBackground.open {
+  opacity: 1;
+}
+
+.selection {
+  float: right;
+}
+
+.td-hide {
+  display: none;
+}
