@@ -1,56 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rocky's World</title>
+    <title>Rocky's Contact App</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
+    <div class="dropNameBackground"><p></p></div>
     <div class="dropdownBackground"><p></p></div>
     <section class="simulator">
       <div class="table-head">
-        <table>
-          <tr class="clickable">
-            <td class="col-1">
-              <span class="dot" style="background-color: green"></span>
-              Christopher
-            </td>
-            <td class="col-2">Christopher@mailinator.com</td>
-            <td class="td-hidden">
-              <p>Christopher@mailinator.com</p>
-              <p>555-555-5555</p>
-              <p>
-                6245 Wilson Ave.<br />
-                Culver City, CA 90234
-              </p>
-            </td>
-          </tr>
-        </table>
-
         <h2>Contacts</h2>
       </div>
 
-      <table id="app">
-        <tr>
-          <td>hello</td>
-          <td>hello</td>
-        </tr>
-      </table>
+      <div class="table-size">
+        <table id="app">
+          <tr>
+            <td>hello</td>
+            <td>hello</td>
+          </tr>
+        </table>
+      </div>
 
       <div class="table-footer">
-        <div class="selection">
+        <div class="select-col2">
           <select name="selector" id="selector">
-            <option value="email">EMAIL</option>
-            <option value="phone">PHONE</option>
+            <option value="email">Email address</option>
+            <option value="phone">Phone number</option>
           </select>
         </div>
-
-        <p class="butt" style="padding:40px; border: red 2px solid">
-          butts
-        </p>
       </div>
     </section>
+
+    <footer>
+      By Rocky -- <a href="/explainer.html"> My step by step process </a>
+    </footer>
 
     <script src="index.js"></script>
   </body>

@@ -1,82 +1,122 @@
 [
   {
     "status": "green",
-    "name": "Christopher",
-    "phone": "555-555-5555",
-    "email": "Christopher@mailinator.com",
-    "address": "6245 Wilson Ave.",
+    "name": "Christian",
+    "phone": "323-555-1234",
+    "email": "Christopher@yahoo.com",
+    "address": "6539 Wilson Ave.",
     "city": "Culver City",
     "state": "CA",
     "zip": "90234"
-  },
-  {
-    "status": "red",
-    "name": "Jimmy",
-    "phone": "555-555-5555",
-    "email": "Jimmy@mailinator.com",
-    "address": "12324 Jimmy Ave.",
-    "city": "Lola City",
-    "state": "AB",
-    "zip": "12323"
-  },
-  {
-    "status": "yellow",
-    "name": "Tommie",
-    "phone": "555-555-5555",
-    "email": "Tommie@mailinator.com",
-    "address": "6245 Tommie Ave.",
-    "city": "Culver City",
-    "state": "CA",
-    "zip": "90234"
-  },
-  {
-    "status": "orange",
-    "name": "Jackie",
-    "phone": "555-555-5555",
-    "email": "Jackie@mailinator.com",
-    "address": "12324 Jackie Ave.",
-    "city": "Lola City",
-    "state": "AB",
-    "zip": "12323"
   },
   {
     "status": "green",
-    "name": "Dave",
-    "phone": "555-555-5555",
-    "email": "Dave@mailinator.com",
-    "address": "6245 Wilson Ave.",
+    "name": "Rich",
+    "phone": "323-555-1234",
+    "email": "Rich@tripod.com",
+    "address": "6539 Wilson Ave.",
+    "city": "Culver City",
+    "state": "CA",
+    "zip": "90234"
+  },
+  {
+    "status": "green",
+    "name": "Scott",
+    "phone": "323-555-1234",
+    "email": "scott@mailinator.com",
+    "address": "6539 Wilson Ave.",
+    "city": "Culver City",
+    "state": "CA",
+    "zip": "90234"
+  },
+  {
+    "status": "green",
+    "name": "Danny",
+    "phone": "323-555-1234",
+    "email": "danny@hotmail.com",
+    "address": "6539 Wilson Ave.",
     "city": "Culver City",
     "state": "CA",
     "zip": "90234"
   },
   {
     "status": "red",
-    "name": "Sarah",
-    "phone": "555-555-5555",
-    "email": "Sarah@mailinator.com",
-    "address": "12324 Sarah Ave.",
-    "city": "Lola City",
-    "state": "AB",
-    "zip": "12323"
+    "name": "Taka",
+    "phone": "323-555-1234",
+    "email": "taka@myspace.com",
+    "address": "6539 Wilson Ave.",
+    "city": "Culver City",
+    "state": "CA",
+    "zip": "90234"
   },
   {
     "status": "yellow",
-    "name": "Yongie",
-    "phone": "555-555-5555",
-    "email": "Yongie@mailinator.com",
-    "address": "6245 Wilson Ave.",
+    "name": "Tim",
+    "phone": "323-555-1234",
+    "email": "tim@netscape.com",
+    "address": "6539 Wilson Ave.",
+    "city": "Culver City",
+    "state": "CA",
+    "zip": "90234"
+  },
+  {
+    "status": "green",
+    "name": "Patrick",
+    "phone": "323-555-1234",
+    "email": "patrick@live.com",
+    "address": "6539 Wilson Ave.",
     "city": "Culver City",
     "state": "CA",
     "zip": "90234"
   },
   {
     "status": "orange",
-    "name": "Bogo",
-    "phone": "555-555-5555",
-    "email": "Bogo@mailinator.com",
-    "address": "12324 Bogo Ave.",
-    "city": "Lola City",
-    "state": "AB",
-    "zip": "12323"
+    "name": "Jacques",
+    "phone": "323-555-1234",
+    "email": "jacques@aol.com",
+    "address": "6539 Wilson Ave.",
+    "city": "Culver City",
+    "state": "CA",
+    "zip": "90234"
+  },
+  {
+    "status": "purple",
+    "name": "Marcy",
+    "phone": "323-555-1234",
+    "email": "marcy@girlfriend.com",
+    "address": "My House",
+    "city": "Spokane Valley",
+    "state": "WA",
+    "zip": "90213"
+  },
+  {
+    "status": "orange",
+    "name": "Lydia",
+    "phone": "323-555-1234",
+    "email": "lydia@whiterun.com",
+    "address": "6539 Wilson Ave.",
+    "city": "Whiterun",
+    "state": "Skyrim",
+    "zip": "90234"
+  },
+  {
+    "status": "grey",
+    "name": "Stripey",
+    "phone": "323-555-1234",
+    "email": "stripey@cat.com",
+    "address": "6539 Wilson Ave.",
+    "city": "Culver City",
+    "state": "CA",
+    "zip": "90234"
+  },
+  {
+    "status": "green",
+    "name": "Bond",
+    "phone": "323-555-1234",
+    "email": "jamesbond@007.com",
+    "address": "6539 Wilson Ave.",
+    "city": "Culver City",
+    "state": "CA",
+    "zip": "90234"
   }
 ]

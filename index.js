@@ -2,6 +2,13 @@ let isSecondRowShowingEmail = true;
 let isOverlayOn = false;
 var dataRows;
 
+const dropdownBackground = document.querySelector(".dropdownBackground"); //for the click function
+const dropNameBackground = document.querySelector(".dropNameBackground"); //for the click function
+
+//On window load - generate the table.
+generateTable();
+
+//gather data from JSON
 async function getData(url) {
   const response = await fetch(url);
   return response.json();
@@ -23,7 +30,7 @@ async function generateTable() {
     //third row hidden [email, phone, address]
     const address1 = data[row].address;
     const address2 = `${data[row].city}, ${data[row].state} ${data[row].zip}`;
-    const thirdRow = `<p>${data[row].email}</p><p>${data[row].phone}</p><p>${address1}<br /> ${address2}</p>`;
+    const thirdRow = `<p><a href="mailto:${data[row].email}">${data[row].email}</a></p><p>${data[row].phone}</p><p>${address1}<br /> ${address2}</p>`;
 
     //turn it into a data
     jsonData += `<tr>
@@ -42,55 +49,6 @@ async function generateTable() {
   });
 }
 
-//On window load - generate the table.
-generateTable();
-
-// 1) When you click a row, it shows the box directly on top of it.
-// const dataRow = document.querySelector(".clickable");
-
-// dataRow.addEventListener("click", showBox);
-
-// 2) set all boxes to have the function
-//set all tb items to have a click event
-// const triggers = document.querySelectorAll(".cool > li");
-// let contactRows = document.querySelectorAll("#app");
-
-// contactRows.forEach(contactRow => console.log(contactRow));
-
-// let elementX = window.scrollX + document.row
-// .getBoundingClientRect().left
-
-function showBox() {
-  let hiddenData = this.querySelector(".td-hidden").innerHTML;
-  let secondRowCoords = this.querySelector(".col-2").getBoundingClientRect();
-
-  const coords = {
-    top: secondRowCoords.top - 6,
-    left: secondRowCoords.left - 6,
-    width: "",
-    height: ""
-  };
-
-  dropdownBackground.style.setProperty(
-    "transform",
-    `translate(${coords.left}px, ${coords.top}px)`
-  );
-
-  dropdownBackground.classList.add("open");
-
-  //send text to dropdown
-  dropdownBackground.querySelector("p").innerHTML = hiddenData;
-  console.log(hiddenData);
-}
-
-//for the click function
-const row = document.querySelector("#tester");
-const dropdownBackground = document.querySelector(".dropdownBackground");
-
-function hideBox() {
-  dropdownBackground.classList.remove("open");
-}
-
 //for the dropdown
 document.querySelector("#selector").addEventListener("change", changeSecondRow);
 
@@ -101,19 +59,61 @@ function changeSecondRow() {
   generateTable();
 }
 
-// 1) When ou click butts, it adds a overlay on top of the thing.
-document.querySelector(".butt").addEventListener("click", setOverlay);
-
 function setOverlay() {
   isOverlayOn = !isOverlayOn;
   console.log("isOverlayOn", isOverlayOn);
 
   if (isOverlayOn) {
     document.querySelector("#app").classList.add("overlay");
-    console.log("show overlay");
   } else {
     document.querySelector("#app").classList.remove("overlay");
-
-    console.log("hide overlay");
+    hideBox(); //removes the pop-up boxes
   }
+}
+
+function showBox() {
+  let hiddenData = this.querySelector(".td-hidden").innerHTML;
+  let first = this.querySelector(".col-1");
+  let second = this.querySelector(".col-2");
+  let firstCoords = first.getBoundingClientRect();
+  let secondCoords = second.getBoundingClientRect();
+
+  const coords = {
+    firstTop: window.scrollY + firstCoords.top - 6,
+    firstLeft: window.scrollX + firstCoords.left - 6,
+    secondTop: window.scrollY + secondCoords.top - 6,
+    secondLeft: window.scrollX + secondCoords.left - 6
+  };
+
+  dropNameBackground.style.setProperty(
+    "transform",
+    `translate(${coords.firstLeft}px, ${coords.firstTop}px)`
+  );
+
+  dropdownBackground.style.setProperty(
+    "transform",
+    `translate(${coords.secondLeft}px, ${coords.secondTop}px)`
+  );
+
+  dropdownBackground.classList.add("open");
+
+  //set overlay on
+  setOverlay();
+
+  //send text to dropdown
+  dropdownBackground.querySelector("p").innerHTML = hiddenData;
+
+  //lift up first box
+  if (dropdownBackground.classList.contains("open")) {
+    dropNameBackground.querySelector("p").innerHTML = first.innerHTML;
+    dropNameBackground.classList.add("open");
+  }
+}
+
+function hideBox() {
+  dropdownBackground.classList.remove("open");
+  dropdownBackground.style.setProperty("transform", `translate(0px, 0px)`);
+
+  dropNameBackground.classList.remove("open");
+  dropNameBackground.style.setProperty("transform", `translate(0px, 0px)`);
 }

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rocky's Explainer</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body style="width: 960px; margin: 0 auto;">
+    <section>
+      <h1>The goal of the project</h1>
+      <img src="contactListUpdated.jpg" alt="image file of product" />
+      <h2>Step-by-step</h2>
+    </section>
+
+    <h2>Step 1: Generating content from a JSON file.&nbsp;</h2>
+    <p>
+      My first step was thinking through what a client would ask about during
+      the presentation. Things the client may say --
+    </p>
+    <ol>
+      <li>Can I change the colors?</li>
+      <li>Instead of the circles, can I get different shapes?</li>
+      <li>Will this work on my phone?</li>
+      <li>How do I (a non-coder) add more contacts?</li>
+    </ol>
+    <p>#1 to #3 is easy CSS stuff. Not worried!</p>
+    <p>
+      #4 is where setting this project up properly will make my life easier in
+      the long run.&nbsp;
+    </p>
+    <p>
+      I made a placeholder json file that contained name/address/info/etc. I
+      then made two functions, a getData and a generateTable that ran async
+      because they're using fetch and javascript promises.
+    </p>
+    <p>
+      <strong>getData</strong> fetches the JSON.
+      <strong>generateTable </strong>turns each JSON object into a html
+      &lt;tr&gt; piece of content. Within generateTable's function, you can also
+      modify how you arrange the content.
+    </p>
+    <h2>Step 2: Getting something showing</h2>
+    <p>
+      Once I got the JSON data to display, I set up a quick and dirty version of
+      the app. No focus on design, just pure functionality.&nbsp;
+    </p>
+    <p>
+      I put a &lt;table&gt;, created a &lt;select&gt; with two options
+      (email/phone).
+    </p>
+    <p>
+      This helped me figure out how to best display the colored circle status
+      indicator. I went back and modified the hardcoded JSON file to include a
+      'status', which included a color - in case future statuses occured (i.e.
+      what if they want a Not available except via email?). While it's important
+      not to over-engineer, this was a quick and easy future-proofing, so why
+      not?
+    </p>
+    <p>
+      This also helped me think through how to get that Third image concept to
+      work.&nbsp;
+    </p>
+    <p><img src="third-screen.png" /></p>
+    <p>&nbsp;</p>
+    <h2>Step 3: Getting a box showing and changing phone numbers</h2>
+    <p>This is where it got fancy.&nbsp;</p>
+    <p>
+      Let's start with the easy thing: Changing phone numbers when you change
+      the selector.&nbsp;
+    </p>
+    <p>
+      The logic to display data in the table exists in
+      <strong>generateTable().&nbsp;</strong>Inside was a conditional to say,
+      "In column 2... show me the email! Or show me the phone number!" I set up
+      a quick global variable boolean called&nbsp;
+      --&gt;&nbsp;<strong>isSecondRowShowingEmail&nbsp;</strong>and a event
+      listener to check if there's a change.
+    </p>
+    <p style="padding-left: 30px;">
+      <em>(Note: I like my variable booleans to be questions. </em
+      ><br /><br /><em>isSecondRowShowingEmail = true </em><br /><br /><em
+        >makes it easy for me to understand at a glance. My preference is I
+        rather have longer variable names if it helps with code readibility.
+        Because 99.9% of the time, I don't remember the code i write and I'm the
+        one to fix it. :-D )</em
+      >
+    </p>
+    <div>&nbsp;</div>
+    <p>
+      Now the hard thing: How the heck do I go about showing the extra data when
+      a row is clicked, at that exact spot?
+    </p>
+    <p>
+      I've done this with menus where you right-click, and a div element pops in
+      to recreate the 'windows right click'. But to tie it to that exact corner
+      of the table cell?
+    </p>
+    <p>
+      Jquery had functionality right out of the box to handle this. And since
+      we're JQuery-free, I had to do some research.
+      <a
+        href="https://stackoverflow.com/questions/442404/retrieve-the-position-x-y-of-an-html-element"
+        >And it found it here</a
+      >!&nbsp;
+    </p>
+    <h2>Step 3: Getting a box showing and changing phone numbers</h2>
+    <p>This is where it got fancy.&nbsp;</p>
+    <p>
+      Let's start with the easy thing: Changing phone numbers when you change
+      the selector.&nbsp;
+    </p>
+    <p>
+      The logic to display data in the table exists in
+      <strong>generateTable().&nbsp;</strong>Inside was a conditional to say,
+      "In column 2... show me the email! Or show me the phone number!" I set up
+      a quick global variable boolean called
+      --&gt;&nbsp;<strong>isSecondRowShowingEmail&nbsp;</strong>and a event
+      listener to check if there's a change.
+    </p>
+    <p style="padding-left: 30px;">
+      <em>(Note: I like my variable booleans to be questions. </em
+      ><br /><br /><em>isSecondRowShowingEmail = true </em><br /><br /><em
+        >makes it easy for me to understand at a glance. My preference is I
+        rather have longer variable names if it helps with code readibility.
+        Because 99.9% of the time, I don't remember the code i write and I'm the
+        one to fix it. :-D )</em
+      >
+    </p>
+    <p>
+      Now the hard thing: How the heck do I go about showing the extra data when
+      a row is clicked, at that exact spot?
+    </p>
+    <p><img src="third-screen.png" /></p>
+    <p>
+      I've done this with menus where you right-click, and a div element pops in
+      to recreate the 'windows right click'. But to tie it to that exact corner
+      of the table cell?
+    </p>
+    <p>
+      Jquery had functionality right out of the box to handle this. And since
+      we're JQuery-free, I had to do some research.
+      <a
+        href="https://stackoverflow.com/questions/442404/retrieve-the-position-x-y-of-an-html-element"
+        >And it found it here</a
+      >! TL;DR:&nbsp;<strong>getBoundingClientRect()&nbsp;</strong>is the
+      solution
+    </p>
+    <p>
+      What isn't seen in the code is the handleful of console.logs to play with
+      the coordinates and generate the content inside the box.
+    </p>
+    <h2>Step 4: Actual design</h2>
+    <p>Now to up it to 11!</p>
+    <p>
+      My experience as a web developer has shown that getting the functionality
+      to work as a ugly prototype is barely half the battle. Getting the
+      functionality to work with the actual design &amp; layout is what
+      matters.&nbsp;
+    </p>
+    <p>
+      I messed with the CSS and layed out the project. You might see a #app
+      element in the HTML because I'm so used to js frameworks now. You will
+      also see things built around it.
+    </p>
+    <p>To match the colors, I opened up the file in a photo editing tool.</p>
+    <p>
+      For gradients, I googled a generator for that - because gradients in CSS
+      is hard.
+    </p>
+    <p>I tested the design on various screens sizes - and no issues there.</p>
+    <p>&nbsp;</p>
+    <h2>Step 5: Testing it again with the design</h2>
+    <p>
+      This is where the little things really started to show. In the third
+      screen is a overlay. Column 1's box clearly shows the name, and Column 2's
+      box shows the additional data. The table is darkened, but that cell column
+      is bright. How does that work?!
+    </p>
+    <p><img src="third-screen.png" /></p>
+    <h3>I'd LOVE to see how others solve this issue.</h3>
+    <p>
+      My workaround was to create TWO elements on TOP of the file, and turn them
+      on/off with opacity, to appear where I click. Then when you clicked out of
+      the content, the boxes turn off and hide in the upper-left corner.
+    </p>
+    <p>&nbsp;</p>
+    <h2>Step 6: Polish and re-factoring&nbsp;</h2>
+    <p>
+      I reviewed the design to match the colors better. My screen seems weird -
+      I wrote purple as a color, but it showed blue. So here's hoping the colors
+      work accurately on your screens!
+    </p>
+    <p>
+      I also renamed a few weird classes to better reflect their use-cases.
+      Again, I'm banking that i'd be the primary maintainer, so I worked on
+      readability.&nbsp;
+    </p>
+    <p>
+      Overall - this was one of those fun projects where I knew 90% is solvable,
+      and the other 10% was trying a bunch of tests until it works -- and then
+      focusing on cleaning things up for production.&nbsp;
+    </p>
+    <h2>Step 6.1: Last second freak out</h2>
+    <p>
+      After completing any project, I like to review the details once more in
+      case I miss anything. When I read the
+      <strong>We wish to assess your CSS skills</strong> part, I freaked out
+      because I was unsure if you wanted me to recreate the image complete, or
+      have a working app. But the latter sentence about looking at the JS skills
+      made me believe that you're looking for a working production-ready app.
+    </p>
+    <p>
+      I typically ask a lot of questions for clarity during a project to avoid
+      these minor freak outs.
+    </p>
+
+    <p style="padding-bottom: 80px">
+      Panic avoided. :-)
+    </p>
+
+    <footer>By Rocky -- <a href="/index.html"> Back to the code </a></footer>
+  </body>
+</html>
