@@ -1,43 +1,82 @@
 [
-    {
-      "status": "green",
-      "name": "Christopher",
-      "phone": "555-555-5555",
-      "email": "Christopher@mailinator.com",
-      "address": "6245 Wilson Ave.",
-      "city": "Culver City",
-      "state": "CA",
-      "zip": "90234"
-    },
-    {
-      "status": "red",
-      "name": "Jimmy",
-      "phone": "555-555-5555",
-      "email": "Jimbo@mailinator.com",
-      "address": "12324 Wilson Ave.",
-      "city": "Lola City",
-      "state": "AB",
-      "zip": "12323"
-    },
-    {
-      "status": "yellow",
-      "name": "Tommie",
-      "phone": "555-555-5555",
-      "email": "Christopher@mailinator.com",
-      "address": "6245 Wilson Ave.",
-      "city": "Culver City",
-      "state": "CA",
-      "zip": "90234"
-    },
-    {
-      "status": "orange",
-      "name": "Jackie",
-      "phone": "555-555-5555",
-      "email": "Jimbo@mailinator.com",
-      "address": "12324 Wilson Ave.",
-      "city": "Lola City",
-      "state": "AB",
-      "zip": "12323"
-    }
-  ]
-  
+  {
+    "status": "green",
+    "name": "Christopher",
+    "phone": "555-555-5555",
+    "email": "Christopher@mailinator.com",
+    "address": "6245 Wilson Ave.",
+    "city": "Culver City",
+    "state": "CA",
+    "zip": "90234"
+  },
+  {
+    "status": "red",
+    "name": "Jimmy",
+    "phone": "555-555-5555",
+    "email": "Jimmy@mailinator.com",
+    "address": "12324 Jimmy Ave.",
+    "city": "Lola City",
+    "state": "AB",
+    "zip": "12323"
+  },
+  {
+    "status": "yellow",
+    "name": "Tommie",
+    "phone": "555-555-5555",
+    "email": "Tommie@mailinator.com",
+    "address": "6245 Tommie Ave.",
+    "city": "Culver City",
+    "state": "CA",
+    "zip": "90234"
+  },
+  {
+    "status": "orange",
+    "name": "Jackie",
+    "phone": "555-555-5555",
+    "email": "Jackie@mailinator.com",
+    "address": "12324 Jackie Ave.",
+    "city": "Lola City",
+    "state": "AB",
+    "zip": "12323"
+  },
+  {
+    "status": "green",
+    "name": "Dave",
+    "phone": "555-555-5555",
+    "email": "Dave@mailinator.com",
+    "address": "6245 Wilson Ave.",
+    "city": "Culver City",
+    "state": "CA",
+    "zip": "90234"
+  },
+  {
+    "status": "red",
+    "name": "Sarah",
+    "phone": "555-555-5555",
+    "email": "Sarah@mailinator.com",
+    "address": "12324 Sarah Ave.",
+    "city": "Lola City",
+    "state": "AB",
+    "zip": "12323"
+  },
+  {
+    "status": "yellow",
+    "name": "Yongie",
+    "phone": "555-555-5555",
+    "email": "Yongie@mailinator.com",
+    "address": "6245 Wilson Ave.",
+    "city": "Culver City",
+    "state": "CA",
+    "zip": "90234"
+  },
+  {
+    "status": "orange",
+    "name": "Bogo",
+    "phone": "555-555-5555",
+    "email": "Bogo@mailinator.com",
+    "address": "12324 Bogo Ave.",
+    "city": "Lola City",
+    "state": "AB",
+    "zip": "12323"
+  }
+]

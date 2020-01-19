@@ -1,14 +1,41 @@
-body {
+html {
   font-family: sans-serif;
+  background: #ffc600;
+}
+
+.simulator {
+  max-width: 500px;
+  margin: 0px auto;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
 }
 
 table {
   width: 100%;
+  color: white;
+}
+
+table .col-1 {
+  width: 40%;
+}
+
+table .col-2 {
+  width: 60%;
+  color: grey;
+}
+
+table tr:nth-child(even) {
+  background-color: #212121;
+}
+
+table tr:nth-child(odd) {
+  background-color: #1a1a1a;
 }
 
 table,
 td {
-  border: 1px solid black;
+  border: 1px solid grey;
   border-collapse: collapse;
 }
 
@@ -16,27 +43,26 @@ td {
   padding: 15px;
   text-align: left;
 }
-table tr:nth-child(even) {
-  background-color: #eee;
-}
-table tr:nth-child(odd) {
-  background-color: #fff;
-}
 
 .dot {
-  height: 10px;
-  width: 10px;
+  height: 12px;
+  width: 12px;
+  margin-right: 20px;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
 }
 
 .dropdownBackground {
-  width: 100px;
-  height: 100px;
+  width: 300px;
+  height: 150px;
   position: absolute;
-  background-color: black;
+  background-color: green;
   opacity: 0;
+}
+
+.dropdownBackground p {
+  padding-left: 20px;
 }
 
 .dropdownBackground.open {
@@ -44,9 +70,39 @@ table tr:nth-child(odd) {
 }
 
 .selection {
-  float: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 40px;
 }
 
-.td-hide {
+#selector {
+  padding: 10px;
+  font-size: 14px;
+  width: 150px;
+}
+
+.td-hidden {
   display: none;
+}
+
+.table-head {
+  padding-top: 20px;
+  background-color: grey;
+  border-radius: 20px 20px 0 0;
+}
+
+.table-head h2 {
+  margin-left: 20px;
+  color: white;
+}
+
+.table-footer {
+  padding-bottom: 20px;
+  background-color: grey;
+  border-radius: 0 0 20px 20px;
+}
+
+.overlay {
+  filter: brightness(0.2);
 }

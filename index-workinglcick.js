@@ -1,6 +1,5 @@
 let isSecondRowShowingEmail = true;
 let isOverlayOn = false;
-var dataRows;
 
 async function getData(url) {
   const response = await fetch(url);
@@ -9,6 +8,8 @@ async function getData(url) {
 
 async function generateTable() {
   const data = await getData("contacts.json");
+  // console.log(data);
+  // console.log("output", data[0].name);
   let jsonData = "";
 
   for (let row in data) {
@@ -20,7 +21,7 @@ async function generateTable() {
       isSecondRowShowingEmail ? data[row].email : data[row].phone
     }`;
 
-    //third row hidden [email, phone, address]
+    //third row [email, phone, address]
     const address1 = data[row].address;
     const address2 = `${data[row].city}, ${data[row].state} ${data[row].zip}`;
     const thirdRow = `<p>${data[row].email}</p><p>${data[row].phone}</p><p>${address1}<br /> ${address2}</p>`;
@@ -34,35 +35,27 @@ async function generateTable() {
   }
 
   document.getElementById("app").innerHTML = jsonData;
-
-  //pass all tr into const
-  dataRows = document.querySelectorAll("tr");
-  dataRows.forEach(dataRow => {
-    dataRow.addEventListener("click", showBox);
-  });
 }
 
 //On window load - generate the table.
 generateTable();
 
 // 1) When you click a row, it shows the box directly on top of it.
-// const dataRow = document.querySelector(".clickable");
+const dataRow = document.querySelector(".clickable");
 
-// dataRow.addEventListener("click", showBox);
+dataRow.addEventListener("click", showBox);
 
-// 2) set all boxes to have the function
-//set all tb items to have a click event
-// const triggers = document.querySelectorAll(".cool > li");
-// let contactRows = document.querySelectorAll("#app");
-
-// contactRows.forEach(contactRow => console.log(contactRow));
-
-// let elementX = window.scrollX + document.row
-// .getBoundingClientRect().left
+// 2)
 
 function showBox() {
-  let hiddenData = this.querySelector(".td-hidden").innerHTML;
-  let secondRowCoords = this.querySelector(".col-2").getBoundingClientRect();
+  const hiddenData = dataRow.childNodes[5].innerHTML;
+  const secondRowCoords = dataRow.childNodes[3].getBoundingClientRect();
+  // const secondRowCoords = dataRow.childNodes[1].getBoundingClientRect();
+
+  //   let coordX =
+  //     window.scrollX + row.lastElementChild.getBoundingClientRect().left;
+  //   let coordY =
+  //     window.scrollY + row.lastElementChild.getBoundingClientRect().top;
 
   const coords = {
     top: secondRowCoords.top - 6,
@@ -81,6 +74,15 @@ function showBox() {
   //send text to dropdown
   dropdownBackground.querySelector("p").innerHTML = hiddenData;
   console.log(hiddenData);
+
+  //set all tb items to have a click event
+  // const triggers = document.querySelectorAll(".cool > li");
+  // let contactRows = document.querySelectorAll("#app");
+
+  // contactRows.forEach(contactRow => console.log(contactRow));
+
+  // let elementX = window.scrollX + document.row
+  // .getBoundingClientRect().left
 }
 
 //for the click function
@@ -116,4 +118,32 @@ function setOverlay() {
 
     console.log("hide overlay");
   }
+}
+
+//get position of the div
+
+function getPosition(element) {
+  let posX,
+    posY = 0;
+
+  while (element) {
+    if (element.tagName == "BODY") {
+      //deal with browser quirks
+
+      let xScroll = element.scrollLeft || document.documentElement.scrollLeft;
+      let xyScroll = element.scrollTop || document.documentElement.scrollTop;
+    } else {
+      //for other non-body stuff
+
+      posX += element.offsetLeft - element.scrollLeft + element.clientLeft;
+      posY += element.offsetTop - element.scrollTop + element.clientTop;
+    }
+
+    element = element.offsetParent;
+  }
+
+  return {
+    x: posX,
+    y: posY
+  };
 }

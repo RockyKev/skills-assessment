@@ -7,29 +7,51 @@
   </head>
 
   <body>
-    <div class="dropdownBackground"></div>
+    <div class="dropdownBackground"><p></p></div>
+    <section class="simulator">
+      <div class="table-head">
+        <table>
+          <tr class="clickable">
+            <td class="col-1">
+              <span class="dot" style="background-color: green"></span>
+              Christopher
+            </td>
+            <td class="col-2">Christopher@mailinator.com</td>
+            <td class="td-hidden">
+              <p>Christopher@mailinator.com</p>
+              <p>555-555-5555</p>
+              <p>
+                6245 Wilson Ave.<br />
+                Culver City, CA 90234
+              </p>
+            </td>
+          </tr>
+        </table>
 
-    <h2>Data</h2>
-    <!-- <table>
-        <tr id="tester">
-          <td>NAME</td>
-          <td>EMAIL</td>
+        <h2>Contacts</h2>
+      </div>
+
+      <table id="app">
+        <tr>
+          <td>hello</td>
+          <td>hello</td>
         </tr>
-   -->
+      </table>
 
-    <table id="app">
-      <tr>
-        <td>hello</td>
-        <td>hello</td>
-      </tr>
-    </table>
+      <div class="table-footer">
+        <div class="selection">
+          <select name="selector" id="selector">
+            <option value="email">EMAIL</option>
+            <option value="phone">PHONE</option>
+          </select>
+        </div>
 
-    <div class="selection">
-      <select name="selector" id="selector">
-        <option value="email">EMAIL</option>
-        <option value="phone">PHONE</option>
-      </select>
-    </div>
+        <p class="butt" style="padding:40px; border: red 2px solid">
+          butts
+        </p>
+      </div>
+    </section>
+
     <script src="index.js"></script>
   </body>
 </html>
